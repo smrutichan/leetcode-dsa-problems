@@ -10,13 +10,14 @@ Time Complexity: O(n)
 Space Complexity: O(n)
 */
 
-int* dailyTemperatures(int* temperatures, int temperaturesSize, int* returnSize) {
+int* dailyTemperatures(int* arr, int n, int* returnSize) {
+    *returnSize = n;
     int* ans = (int*)calloc(n, sizeof(int));
     int* stack = (int*)malloc(n * sizeof(int));
     int top = -1;
 
     for (int i = 0; i < n; i++) {
-        while (top >= 0 && temps[i] > temps[stack[top]]) {
+        while (top >= 0 && arr[i] > arr[stack[top]]) {
             int prev = stack[top--];
             ans[prev] = i - prev;
         }

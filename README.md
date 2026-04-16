@@ -21,30 +21,6 @@ A curated collection of my LeetCode solutions, focused on mastering Data Structu
 - Recursion & Backtracking  
 
 ---
-
-# 🧩 LeetCode DSA Practice
-
-A curated collection of my LeetCode solutions, focused on mastering Data Structures and Algorithms through consistent practice and pattern-based problem solving.
-
----
-
-## 🚀 Overview
-- Solved **150+ problems** across core DSA topics  
-- Focus on **clean, optimized implementations**  
-- Emphasis on understanding **patterns and problem-solving techniques**  
-
----
-
-## 🧠 Topics Covered
-- Arrays & Strings  
-- Linked Lists  
-- Stacks & Queues  
-- Trees & Binary Search Trees  
-- Graphs  
-- Dynamic Programming  
-- Recursion & Backtracking  
-
----
 ## 📂 Repository Structure
 
 Problems are organized by topic and difficulty level.

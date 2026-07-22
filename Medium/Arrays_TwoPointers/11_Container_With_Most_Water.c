@@ -12,24 +12,18 @@ Space Complexity: O(1)
 
 int maxArea(int* height, int heightSize) {
     int left = 0;
-    int right = heightSize - 1;
-    int maxWater = 0;
+        int right = height.size() - 1;
+        int maxArea = 0;
 
-    while(left < right){
-        int h = height[left] < height[right] ? height[left] : height[right]; // to decide which line to take as final height for finding area
-        int width = right - left;
-        int area = width * h;
+        while (left < right) {
+            int area = (right - left) * min(height[left], height[right]);
+            maxArea = max(maxArea, area);
 
-        if(area > maxWater){
-            maxWater = area;
+            if (height[left] < height[right])
+                left++;
+            else
+                right--;
         }
 
-        if(height[left] < height[right]){
-            left++;
-        }
-        else {
-            right--;
-        }
-    }
-    return maxWater;
+        return maxArea;
 }

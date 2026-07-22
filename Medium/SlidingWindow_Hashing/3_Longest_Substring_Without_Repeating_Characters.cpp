@@ -13,18 +13,19 @@ Space Complexity: O(min(n, charset))
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        unordered_map<char, int> seen;
-        int start = 0;
-        int maxLength = 0;
+        unordered_map<char, int> mp;
+        int left = 0;
+        int count = 0;
 
         for (int i = 0; i < s.length(); i++) {
-            if (seen.count(s[i]) && seen[s[i]] >= start) {
-                start = seen[s[i]] + 1;
+            if (mp.find(s[i]) != mp.end() && mp[s[i]] >= left) {
+                left = mp[s[i]] + 1;
             }
-            
-            seen[s[i]] = i;
-            maxLength = max(maxLength, i - start + 1);
+
+            mp[s[i]] = i;
+            count = max(count, i - left + 1);
         }
-        return maxLength;
+
+        return count;
     }
 };

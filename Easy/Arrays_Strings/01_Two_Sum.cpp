@@ -1,24 +1,28 @@
 /*
-Data Structure Used: Array
-Time Complexity: O(n^2)
-Space Complexity: O(1) (excluding output array)
-
-Note:
-This is a brute-force solution using arrays.
-An optimized O(n) solution can be achieved using hashing.
+Data Structure Used: unordered_map
+Time Complexity: O(n)
+Space Complexity: O(1) 
 */
 
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
-    int* result = (int*)malloc(2 * sizeof(int));
-    *returnSize = 2;
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> mp;
 
-    for(int i = 0; i < numsSize-1; i++){
-        for(int j = i+1; j < numsSize; j++){
-            if((nums[i] + nums[j]) == target){
-                result[0] = i;
-                result[1] = j;
+        // Store each number and its index
+        for (int i = 0; i < nums.size(); i++) {
+            mp[nums[i]] = i;
+        }
+
+        // Find the complement
+        for (int i = 0; i < nums.size(); i++) {
+            int val = target - nums[i];
+
+            if (mp.find(val) != mp.end() && mp[val] != i) {
+                return {i, mp[val]};
             }
         }
+
+        return {};
     }
-    return result;
-}
+};
